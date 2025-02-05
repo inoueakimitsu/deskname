@@ -80,7 +80,8 @@ def test_desktop_name_display_update(
 
     assert app.label["text"] == "New Desktop"
     assert app.label["bg"] != initial_bg
-    assert app.label["fg"] != initial_fg
+    # 文字色は背景色の明度に応じて黒または白に固定されるため、必ずしも変更されない
+    assert app.label["fg"] in ["#000000", "#ffffff"]
 
     # デスクトップ名が同じ場合
     app.update_display()
