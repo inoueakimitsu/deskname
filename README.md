@@ -49,7 +49,23 @@ python -m deskname.app
 pytest
 ```
 
-### 実行ファイルのビルド
+### リリース手順
+
+1. バージョンタグを作成してプッシュ:
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+2. GitHub Actionsが自動的に以下を実行:
+   - テストの実行
+   - 実行ファイル(.exe)のビルド
+   - インストーラー(DeskName_Setup.exe)の作成
+   - GitHub Releasesへのアップロード
+
+### 手動ビルド
+
+#### 実行ファイルのビルド
 
 ```bash
 # PyInstallerのインストール
@@ -59,7 +75,7 @@ pip install pyinstaller
 pyinstaller --name deskname --onefile --noconsole --icon=NONE deskname/app.py
 ```
 
-### インストーラーの作成
+#### インストーラーの作成
 
 1. [Inno Setup](https://jrsoftware.org/isdl.php)をインストール
 2. `deskname.iss`スクリプトをコンパイル
