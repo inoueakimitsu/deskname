@@ -28,7 +28,7 @@ Windows用の仮想デスクトップ名表示アプリケーション。常に�
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/yourusername/deskname.git
+git clone https://github.com/inoueakimitsu/deskname.git
 cd deskname
 
 # 依存関係のインストール

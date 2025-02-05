@@ -1,7 +1,7 @@
 #define MyAppName "Desktop Name Display"
 #define MyAppVersion "0.1.0"
 #define MyAppPublisher "Akimitsu Inoue"
-#define MyAppURL "https://github.com/yourusername/deskname"
+#define MyAppURL "https://github.com/inoueakimitsu/deskname"
 #define MyAppExeName "deskname.exe"
 
 [Setup]
