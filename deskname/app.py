@@ -89,6 +89,9 @@ class DraggableWindow:
 class DesktopNameDisplay:
     """仮想デスクトップ名を表示するメインアプリケーションクラス."""
 
+    # Display update interval in milliseconds
+    UPDATE_INTERVAL = 100
+
     def __init__(self) -> None:
         """イニシャライザ."""
         self.root = tk.Tk()
@@ -152,11 +155,11 @@ class DesktopNameDisplay:
             colors = ColorScheme.from_name(new_name)
             self.label.config(text=new_name, bg=colors.background, fg=colors.foreground)
             self.root.config(bg=colors.background)
-        self.root.after(500, self.update_display)
+        self.root.after(self.UPDATE_INTERVAL, self.update_display)
 
     def run(self) -> None:
         """アプリケーションを実行する."""
-        self.root.after(500, self.update_display)
+        self.root.after(self.UPDATE_INTERVAL, self.update_display)
         self.root.mainloop()
 
 
