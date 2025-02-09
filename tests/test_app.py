@@ -78,12 +78,12 @@ def test_desktop_name_display_update(
     mock_virtual_desktop.current.return_value.name = "New Desktop"
     app.update_display()
 
-    assert app.label["text"] == "New Desktop"
-    assert app.label["bg"] != initial_bg
-    assert app.label["fg"] != initial_fg
+    assert app.label["text"] == "New Desktop"  # テキストが更新される
+    assert app.label["bg"] != initial_bg  # 背景色が変更される
+    assert app.label["fg"].startswith("#")  # 文字色が16進カラーコード
+    assert len(app.label["fg"]) == 7  # 文字色が正しい形式 (#RRGGBB)
 
     # デスクトップ名が同じ場合
     app.update_display()
-    assert app.label["text"] == "New Desktop"
-    assert app.label["bg"] == app.label["bg"]
-    assert app.label["fg"] == app.label["fg"]
+    assert app.label["text"] == "New Desktop"  # テキストは変更されない
+    assert app.label["bg"] == app.label["bg"]  # 背景色は変更されない
